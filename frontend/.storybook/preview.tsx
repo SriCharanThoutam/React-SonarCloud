@@ -1,4 +1,15 @@
 import type { Preview } from '@storybook/react-vite'
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import theme from "../src/theme";
+
+export const withMuiTheme = (Story) => (
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <Story />
+  </ThemeProvider>
+);
+
+export const decorators = [withMuiTheme];
 
 const preview: Preview = {
   parameters: {
