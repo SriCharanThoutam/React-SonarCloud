@@ -4,51 +4,20 @@ on:
    branches:
      - main
  pull_request:
-   types: [opened, synchronize, reopened, closed]
+   types: [opened, synchronize, reopened]
+   paths:
+     - "frontend/**"
 jobs:
- sonarcloud:
-   if: startsWith(github.head_ref, 'FE_') && github.event.pull_request.merged == false
-   name: SonarCloud
-   runs-on: ubuntu-latest
-   defaults:
-     run:
-       working-directory: ./frontend
+ sonarqube:
+   name: SonarQube
+   runs-on: windows-latest
    steps:
-     - uses: actions/checkout@v2
+     - uses: actions/checkout@v4
        with:
          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-     - name: Install Dependencies
-       run: npm install --legacy-peer-deps
-     - name: Test and coverage
-       run: npm test src/
-     - name: SonarCloud Scan
+     - name: SonarQube Scan
        with:
          projectBaseDir: ./frontend
-       uses: SonarSource/sonarcloud-github-action@main
+       uses: SonarSource/sonarqube-scan-action@v5
        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
- branchAnalysis: # to get the branch analysis on merge
-   if: github.event.pull_request.merged == true
-   name: Branch Analysis on PR merge
-   runs-on: ubuntu-latest
-   defaults:
-     run:
-       working-directory: ./frontend
-   steps:
-     - uses: actions/checkout@v2
-       with:
-         fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-     - name: Install Dependencies
-       run: npm install --legacy-peer-deps
-     - name: Test and coverage
-       run: npm test src/
-     - name: SonarCloud Scan
-       with:
-         projectBaseDir: ./frontend
-         args: >
-           -Dsonar.branch.name=main
-       uses: SonarSource/sonarcloud-github-action@main
-       env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
