@@ -12,7 +12,7 @@ jobs:
    runs-on: ubuntu-latest
    defaults:
      run:
-       working-directory: ./
+       working-directory: ./frontend
    steps:
      - uses: actions/checkout@v2
        with:
@@ -23,7 +23,7 @@ jobs:
        run: npm test src/
      - name: SonarCloud Scan
        with:
-         projectBaseDir: ./
+         projectBaseDir: ./frontend
        uses: SonarSource/sonarcloud-github-action@main
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
@@ -34,7 +34,7 @@ jobs:
    runs-on: ubuntu-latest
    defaults:
      run:
-       working-directory: ./
+       working-directory: ./frontend
    steps:
      - uses: actions/checkout@v2
        with:
@@ -45,7 +45,7 @@ jobs:
        run: npm test src/
      - name: SonarCloud Scan
        with:
-         projectBaseDir: ./
+         projectBaseDir: ./frontend
          args: >
            -Dsonar.branch.name=main
        uses: SonarSource/sonarcloud-github-action@main
