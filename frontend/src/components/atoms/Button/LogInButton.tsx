@@ -1,29 +1,30 @@
-import { Button } from "@mui/material";
+import { Button, styled } from "@mui/material";
 import React from "react";
+import { LOGINBUTTON } from "../../../utils/constants";
 
 interface LogInButtonProps {
-    label?: string;
-    color?: "primary" | "secondary";
-    onClick: () => void;
+  label?: string;
+  color?: "primary" | "secondary";
+  onClick: () => void;
 }
 
-const LogInButton: React.FC<LogInButtonProps> = ({ label = "Continue", color="primary", onClick }) => {
+const StyledButton = styled(Button)(() => ({
+  height: LOGINBUTTON.HEIGHT,
+  borderRadius: LOGINBUTTON.BORDER_RADIUS,
+  fontWeight: LOGINBUTTON.FONT_SIZE,
+  fontSize: LOGINBUTTON.FONT_SIZE,
+}));
+
+const LogInButton: React.FC<LogInButtonProps> = ({ label = "Continue", color = "primary", onClick }) => {
   return (
-    <Button
+    <StyledButton
       variant="contained"
       color={color}
       fullWidth
-      sx={{
-        height: 60,
-        borderRadius: 2,
-        fontWeight: 600,
-        fontSize: "16px",
-        textTransform: "none",
-      }}
       onClick={onClick}
     >
       {label}
-    </Button>
+    </StyledButton>
   );
 };
 

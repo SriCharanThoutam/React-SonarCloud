@@ -1,7 +1,28 @@
 import { useState } from "react";
 import { Typography, Container } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import Input from "../Input/Input";
 import LogInButton from "../Button/LogInButton";
+import { LOGINPAGE } from "../../../utils/constants";
+
+const StyledContainer = styled(Container)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: theme.spacing(3),
+  justifyContent: "center",
+  alignItems: "center",
+  minHeight: LOGINPAGE.LAYOUT.minHeight,
+  backgroundColor: LOGINPAGE.COLORS.background,
+  color: LOGINPAGE.COLORS.textPrimary,
+}));
+
+const Heading = styled(Typography)(() => ({
+  fontWeight: LOGINPAGE.FONT.headingWeight
+}));
+
+const Subtitle = styled(Typography)(() => ({
+  color: LOGINPAGE.COLORS.textSecondary,
+}));
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -13,30 +34,28 @@ function LoginPage() {
   };
 
   return (
-    <Container
-      maxWidth="sm"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 3,
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-        backgroundColor: "#1C1B23",
-        color: "#E8E7F0",
-      }}
-    >
-      <Typography variant="h3" fontWeight="800">
+    <StyledContainer maxWidth="sm">
+      <Heading variant="h3" fontWeight="800">
         Login to Seeder✨
-      </Typography>
-      <Typography variant="subtitle1" color="#A5A5A6">
+      </Heading>
+      <Subtitle variant="subtitle1">
         Enter your mail id and password to login
-      </Typography>
+      </Subtitle>
 
-      <Input type="email" value={email} placeholder="Enter your email id" onChange={setEmail} />
-      <Input type="password" value={password} placeholder="Enter your password" onChange={setPassword} />
+      <Input
+        type="email"
+        value={email}
+        placeholder="Enter your email id"
+        onChange={setEmail}
+      />
+      <Input
+        type="password"
+        value={password}
+        placeholder="Enter your password"
+        onChange={setPassword}
+      />
       <LogInButton onClick={handleLogin} />
-    </Container>
+    </StyledContainer>
   );
 }
 

@@ -1,5 +1,6 @@
-import { TextField } from "@mui/material";
+import { TextField, styled } from "@mui/material";
 import React from "react";
+import { LOGININPUT } from "../../../utils/constants";
 
 interface InputProps {
   type?: string;
@@ -8,25 +9,26 @@ interface InputProps {
   onChange: (value: string) => void;
 }
 
+const StyledInput = styled(TextField)(() => ({
+  "& .MuiOutlinedInput-root": {
+    borderRadius: LOGININPUT.BORDER_RADIUS,
+    backgroundColor: LOGININPUT.BACKGROUND_COLOR,
+    color: LOGININPUT.COLOR,
+  },
+  "& .MuiInputBase-input": {
+    padding: LOGININPUT.PADDING,
+    fontSize: LOGININPUT.FONT_SIZE,
+  }
+}));
+
 const Input: React.FC<InputProps> = ({ type = "text", value, placeholder = "", onChange }) => {
   return (
-    <TextField
+    <StyledInput
       type={type}
       value={value}
       placeholder={placeholder}
       onChange={(e) => onChange(e.target.value)}
       fullWidth
-      sx={{
-        "& .MuiOutlinedInput-root": {
-          borderRadius: 2,
-          backgroundColor: "#262529",
-          color: "white",
-        },
-        "& .MuiInputBase-input": {
-          padding: "16px 15px",
-          fontSize: "16px",
-        },
-      }}
     />
   );
 };
