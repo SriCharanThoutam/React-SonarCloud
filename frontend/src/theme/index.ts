@@ -1,24 +1,30 @@
 import { createTheme } from "@mui/material";
-import { COLORS, FONT, SHAPE } from '../utils/constants'
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: COLORS.PRIMARY_700,
+    palette: {
+        primary: {
+            main: "#6C5DD3"
+        },
+        secondary: {
+            main: "#393552"
+        },
+        text: {
+            primary: "#E8E7F0",
+            secondary: "#A5A5A6"
+        },
+        background: {
+            default: "#18181C"
+        }
     },
-    secondary: {
-      main: COLORS.SECONDARY_500,
+    typography: {
+        fontFamily: "Gilroy, sans-serif",
+        button: {
+            textTransform: 'none'
+        }
     },
-  },
-  typography: {
-    fontFamily: FONT.FAMILY_ROBOTO,
-    button: {
-      textTransform: "none",
+    shape: {
+        borderRadius: 8
     },
-  },
-  shape: {
-    borderRadius: SHAPE.BORDER_RADIUS,
-  },
-});
+})
 
 export default theme;

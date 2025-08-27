@@ -1,14 +1,30 @@
-import { colors } from "@mui/material";
+export const LOGIN_TEXTS = {
+  title: "Login to Seeder ✨",
+  subtitle: "Enter your mail id and password to login",
+  forgotPassword: "Forgot Password?",
+  continueButton: "Continue",
+  noAccount: "Don't have an account?",
+  signUp: "Sign Up",
+};
 
-export const COLORS = {
-    PRIMARY_700: colors.blue[700],
-    SECONDARY_500: colors.orange[500]
-}
+export const SIGNUP_TEXTS = {
+  title: "Sign Up ✨",
+  signUpButton: "Sign Up",
+  isAccount: "Already have an account?",
+  logIn: "Login",
+};
 
-export const FONT = {
-    FAMILY_ROBOTO: "Roboto, Arial, sans-serif",
-}
+export const LOGINBUTTON = {
+  HEIGHT: 60,
+  BORDER_RADIUS: 16,
+  FONT_SIZE: "16px",
+  FONT_WEIGHT: 600,
+};
 
-export const SHAPE = {
-    BORDER_RADIUS: 8
-}
+export const LOGININPUT = {
+    BORDER_RADIUS: 16,
+    BACKGROUND_COLOR: "#262529",
+    COLOR: "white",
+    PADDING: "16px 15px",
+    FONT_SIZE: "16px",
+};
