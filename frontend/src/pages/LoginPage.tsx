@@ -14,7 +14,7 @@ const LoginPage = () => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        bgcolor="backgroud.default"
+        bgcolor="background.default"
       >
         <LoginForm />
       </Box>
