@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoginPage > applies correct background color on right section 1`] = `
+<div
+  class="MuiBox-root css-sv78g9"
+>
+  <div
+    class="MuiBox-root css-eld0dw"
+  >
+    <div
+      data-testid="left-hero"
+    >
+      LeftHero Mock - 
+      /src/assets/LogIn-Illustration.svg
+    </div>
+  </div>
+  <div
+    class="MuiBox-root css-1sftdng"
+  >
+    <div
+      data-testid="login-form"
+    >
+      LoginForm Mock
+    </div>
+  </div>
+</div>
+`;

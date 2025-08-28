@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SignupPage > applies correct layout structure 1`] = `
+<div
+  class="MuiBox-root css-sv78g9"
+>
+  <div
+    class="MuiBox-root css-eld0dw"
+  >
+    <div
+      data-testid="left-hero"
+    >
+      LeftHero Mock - 
+      /src/assets/SignUp-Illustration.svg
+    </div>
+  </div>
+  <div
+    class="MuiBox-root css-hk7alh"
+  >
+    <div
+      data-testid="signup-form"
+    >
+      SignupForm Mock
+    </div>
+  </div>
+</div>
+`;
